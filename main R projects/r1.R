@@ -1,0 +1,71 @@
+# Load necessary libraries
+library(ggplot2)
+library(gridExtra)
+library(reshape2)
+
+# Create a sample dataset
+set.seed(123)
+data <- data.frame(
+  Category = c("A", "B", "C", "D", "E"),
+  Value1 = c(32, 45, 67, 23, 56),
+  Value2 = c(60, 20, 80, 45, 90),
+  Group = rep(c("X", "Y"), length.out=5)
+)
+
+# Bar Plot
+bar_plot <- ggplot(data, aes(x=Category, y=Value1, fill=Category)) +
+  geom_bar(stat="identity") +
+  theme_minimal() +
+  labs(title="Bar Plot", x="Category", y="Value1") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Line Plot
+line_plot <- ggplot(data, aes(x=Category, y=Value2, group=1)) +
+  geom_line(color="blue", size=1) +
+  geom_point(color="red") +
+  theme_minimal() +
+  labs(title="Line Plot", x="Category", y="Value2")
+
+# Scatter Plot
+scatter_plot <- ggplot(data, aes(x=Value1, y=Value2, color=Category)) +
+  geom_point() +
+  theme_minimal() +
+  labs(title="Scatter Plot", x="Value1", y="Value2")
+
+# Histogram
+hist_data <- data.frame(Value = c(rnorm(50, mean=50, sd=10), rnorm(50, mean=60, sd=15)))
+hist_plot <- ggplot(hist_data, aes(x=Value)) +
+  geom_histogram(binwidth=2, fill="skyblue", color="black", alpha=0.7) +
+  theme_minimal() +
+  labs(title="Histogram", x="Value", y="Frequency")
+
+# Box Plot
+box_plot <- ggplot(data, aes(x=Group, y=Value1, fill=Group)) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(title="Box Plot", x="Group", y="Value1")
+
+# Pie Chart (using bar plot transformed into a pie)
+pie_data <- data.frame(
+  Category = c("A", "B", "C", "D", "E"),
+  Value = c(32, 45, 67, 23, 56)
+)
+pie_plot <- ggplot(pie_data, aes(x="", y=Value, fill=Category)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar(theta="y") +
+  theme_minimal() +
+  labs(title="Pie Chart") +
+  theme(axis.text.x=element_blank())
+
+# Violin Plot
+violin_plot <- ggplot(data, aes(x=Category, y=Value2, fill=Category)) +
+  geom_violin() +
+  theme_minimal() +
+  labs(title="Violin Plot", x="Category", y="Value2")
+
+# Arrange plots on the same page
+grid.arrange(
+  bar_plot, line_plot, scatter_plot, hist_plot,
+  box_plot, pie_plot, violin_plot,
+  ncol=3
+)
