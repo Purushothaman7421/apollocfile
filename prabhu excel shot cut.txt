@@ -1,0 +1,49 @@
+Shortcut	Description
+Ctrl + N	Create a new workbook.
+Ctrl + O	Open an existing workbook.
+Ctrl + S	Save the active workbook.
+F12	Save the active workbook under a new name, displays the Save as dialog box.
+Ctrl + W	Close the active workbook.
+Ctrl + C	Copy the contents of the selected cells to Clipboard.
+Ctrl + X	Cut the contents of the selected cells to Clipboard.
+Ctrl + V	Insert the contents of the Clipboard into the selected cell(s).
+Ctrl + Z	Undo your last action. Panic button :)
+Ctrl + P	Open the "Print" dialog.
+Formatting data
+Shortcut	Description
+Ctrl + 1	Open the "Format Cells" dialog.
+Ctrl + T	"Convert selected cells to a table. You can also select any cell in a range of related data, and pressing Ctrl + T will make it a table.
+Find more about Excel tables and their features.
+Working with formulas
+Shortcut	Description
+Tab	Autocomplete the function name. Example: Enter = and start typing vl, press Tab and you will get =vlookup(
+F4	Cycle through various combinations of formula reference types. Place the cursor within a cell and hit F4 to get the needed reference type: absolute, 
+relative or mixed (relative column and absolute row, absolute column and relative row).
+Ctrl + `	Toggle between displaying cell values and formulas.
+Ctrl + '	Insert the formula of the above cell into the currently selected cell or the Formula Bar.
+Navigating and viewing data
+Shortcut	Description
+Ctrl + F1	Show / hide the Excel Ribbon. Hide the ribbon to view more than 4 rows of data.
+Ctrl + Tab	Switch to the next open Excel workbook.
+Ctrl + PgDown	Switch to the next worksheet. Press Ctrl + PgUp to switch to the previous sheet.
+Ctrl + G	Open the "Go to" dialog. Pressing F5 displays the same dialog.
+Ctrl + F	Display the "Find" dialog box.
+Home	Return to the 1st cell of the current row in a worksheet.
+Ctrl + Home	Move to the beginning of a worksheet (A1 cell).
+Ctrl + End	Move to the last used cell of the current worksheet, i.e. the lowest row of the rightmost column.
+Entering data
+Shortcut	Description
+F2	Edit the current cell.
+Alt + Enter	In cell editing mode, enter a new line (carriage return) into a cell.
+Ctrl + ;	Enter the current date. Press Ctrl + Shift + ; to enter the current time.
+Ctrl + Enter	Fill the selected cells with the contents of the current cell.
+Example: select several cells. Press and hold down Ctrl, click on any cell within selection and press F2 to edit it. Then hit Ctrl + Enter and the contents of the edited cell will be copied into all selected cells.
+Ctrl + D	Copy the contents and format of the first cell in the selected range into the cells below. If more than one column is selected, the contents of the topmost cell in each column will be copied downwards.
+Ctrl + Shift + V	Open the "Paste Special" dialog when clipboard is not empty.
+Ctrl + Y	Repeat / Redo the last action, if possible.
+Selecting data
+Shortcut	Description
+Ctrl + A	Select the entire worksheet. If the cursor is currently placed within a table, press once to select the table, press one more time to select the whole worksheet.
+Ctrl + Home then Ctrl + Shift + End	Select the entire range of your actual used data on the current worksheet. 
+Ctrl + Space	Select the entire column.
+Shift + Space	Select the entire row.

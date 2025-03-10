@@ -1,0 +1,110 @@
+Function findArea()
+   Dim Length As Double
+   Dim Width As Double
+   
+   Length = InputBox("Enter Length ", "Enter a Number")
+   Width = InputBox("Enter Width", "Enter a Number")
+   findArea = Length * Width
+End Function
+
+        Variable is a named memory location used to hold a value that can be changed during the script execution. 
+Following are the basic rules for naming a variable.
+
+You must use a letter as the first character.
+
+You can't use a space, period (.), exclamation mark (!), or the characters @, &, $, # in the name.
+
+Name can't exceed 255 characters in length.
+
+You cannot use Visual Basic reserved keywords as variable name.
+Data Types
+There are many VBA data types, which can be divided into two main categories, namely numeric and non-numeric data types.
+
+Numeric Data Types
+Following table displays the numeric data types and the allowed range of values.
+
+Type	Range of Values
+Byte	0 to 255
+Integer	-32,768 to 32,767
+Long	-2,147,483,648 to 2,147,483,648
+Single	
+-3.402823E+38 to -1.401298E-45 for negative values
+
+1.401298E-45 to 3.402823E+38 for positive values.
+
+Double	
+-1.79769313486232e+308 to -4.94065645841247E-324 for negative values
+
+4.94065645841247E-324 to 1.79769313486232e+308 for positive values.
+
+Currency	-922,337,203,685,477.5808 to 922,337,203,685,477.5807
+Decimal	
++/- 79,228,162,514,264,337,593,543,950,335 if no decimal is use
+
++/- 7.9228162514264337593543950335 (28 decimal places).
+
+Non-Numeric Data Types
+Following table displays the non-numeric data types and the allowed range of values.
+
+Type	Range of Values
+String (fixed length)	1 to 65,400 characters
+String (variable length)	0 to 2 billion characters
+Date	January 1, 100 to December 31, 9999
+Boolean	True or False
+Object	Any embedded object
+Variant (numeric)	Any value as large as double
+Variant (text)	Same as variable-length string
+
+Private Sub say_helloworld_Click()
+   Dim password As String
+   password = "Admin#1"
+
+   Dim num As Integer
+   num = 1234
+
+   Dim BirthDay As Date
+   BirthDay = DateValue("30 / 10 / 2020")
+
+   MsgBox "Passowrd is " & password & Chr(10) & "Value of num is " & num & Chr(10) & "Value of Birthday is " & BirthDay
+End Sub
+                 
+constant
+          Constant is a named memory location used to hold a value that CANNOT be changed during the script execution. 
+If a user tries to change a Constant value, the script execution ends up with an error. Constants are declared the same way 
+the variables are declared.
+Private Sub Constant_demo_Click() 
+   Const MyInteger As Integer = 42 
+   Const myDate As Date = #2/2/2020# 
+   Const myDay As String = "Sunday" 
+   
+   MsgBox "Integer is " & MyInteger & Chr(10) & "myDate is " 
+      & myDate & Chr(10) & "myDay is " & myDay  
+End Sub
+
+operators:-
+
+An Operator can be defined using a simple expression - 4 + 5 is equal to 9. Here, 4 and 5 are called operands and
+ + is called operator. VBA supports following types of operators −
+
+Arithmetic Operators
+Comparison Operators
+Logical (or Relational) Operators
+Concatenation Operators
+
+Operator	Description	                                                     Example
++	Adds the two operands	                            A + B will give 15
+-	Subtracts the second operand from the first	          A - B will give -5
+*	Multiplies both the operands	                         A * B will give 50
+/	Divides the numerator by the denominator	          B / A will give 2
+%	Modulus operator and the remainder after an 
+integer division	                                                                B % A will give 0
+^	Exponentiation operator	                                 B ^ A will give 100000
+The Comparison Operators
+There are following comparison operators supported by VBA.
+
+Assume variable A holds 10 and variable B holds 20, then −
+
+Show Examples
+
+Operator	             Description	                                                                                                                                Example
+=	Checks if the value of the two operands are equal or not. If yes, then the condition is true.	(A = B) is F
