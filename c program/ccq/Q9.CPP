@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include<conio.h>
+
+void main()
+{
+clrscr();
+char sentence[100];
+int count = 0;
+int i;
+
+printf("Enter a sentence: ");
+scanf("%[^\n]s", sentence);
+
+for (i = 0; sentence[i] != '\0'; i++) {
+if (sentence[i] == ' ' || sentence[i] == '\t' || sentence[i] == '\n') {
+count++;
+}
+}
+if (sentence[i - 1] != ' ' && sentence[i - 1] != '\t' && sentence[i - 1] != '\n') {
+count++;
+}
+printf("Number of words: %d\n", count);
+getch();
+}

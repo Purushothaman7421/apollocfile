@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+clrscr();
+int a,i;
+int sum=0;
+float avg;
+printf("\nenter the positive number");
+for(i;i<=10;i++)
+{
+scanf("%d",&a);
+if(a>0)
+{
+sum=sum+a;
+}
+else if(a==0)
+break;
+}
+avg=float(sum)/10;
+printf("\nthe sum is %d",sum);
+printf("\nthe avarage is %.2f",avg);
+getch();
+}

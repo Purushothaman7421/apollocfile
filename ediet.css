@@ -1,0 +1,11 @@
+div{
+    font: size 300px;
+    font-style: italic;
+    background-color:pink;
+    border: 5px solid black;
+    height: 600PX;
+    width: 300px;;
+}
+div img{
+    height: 200px;;
+}

@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<conio.h>
+#include<ctype.h>
+void main()
+{
+FILE *f;
+int c=0;
+char a,b;
+clrscr();
+printf("PROGRAM TO COUNT VOWELS IN THE TEXT FILE");
+f=fopen("sample1.txt","r");
+a=fgetc(f);
+printf("\n");
+while(!feof(f))
+{
+printf("%c",a);
+b=tolower(a);
+if(b=='a'||b=='e'||b=='i'||b=='o'||b=='u')
+{
+c=c+1;
+}
+a=fgetc(f);
+}
+printf("\nTHE VOWELS IN THE TEXT FILE IS %d",c);
+getch();
+}
+
+
