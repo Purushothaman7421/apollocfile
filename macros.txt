@@ -1,0 +1,141 @@
+Sub CreateEmployeePaymentSystem()
+
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets.Add
+    ws.Name = "Employee Payment System"
+    
+    ' Set title
+    ws.Range("A1:D1").Merge
+    ws.Range("A1").Value = "Employee Payment Management System"
+    With ws.Range("A1")
+        .Font.Size = 14
+        .Font.Bold = True
+        .HorizontalAlignment = xlCenter
+        .VerticalAlignment = xlCenter
+    End With
+    
+    ' Input labels
+    Dim labels As Variant
+    labels = Array("Full Name", "Company/Agency", "Home Address", "Phone Number", _
+                   "Hours Worked", "Hourly Rate", "Overtime", "Gross Pay", _
+                   "Tax", "Net Pay")
+    Dim i As Integer
+    For i = 0 To UBound(labels)
+        ws.Cells(i + 3, 1).Value = labels(i)
+        ws.Cells(i + 3, 1).Font.Bold = True
+    Next i
+
+    ' Add ActiveX textboxes with names
+    Dim tb As Object
+    For i = 1 To 10
+        Set tb = ws.OLEObjects.Add(ClassType:="Forms.TextBox.1", _
+                                   Left:=200, Top:=30 * (i + 2), Width:=100, Height:=20)
+        tb.Name = "t" & i
+    Next i
+
+    ' Add ActiveX buttons
+    Dim btn As Object
+
+    ' Weekly Salary button
+    Set btn = ws.OLEObjects.Add(ClassType:="Forms.CommandButton.1", _
+                                Left:=400, Top:=120, Width:=100, Height:=30)
+    btn.Object.Caption = "Weekly Salary"
+    btn.Name = "WS"
+    btn.Object.OnAction = "CalculateWeeklySalary"
+
+    ' Reset button
+    Set btn = ws.OLEObjects.Add(ClassType:="Forms.CommandButton.1", _
+                                Left:=400, Top:=160, Width:=100, Height:=30)
+    btn.Object.Caption = "Reset"
+    btn.Name = "RT"
+    btn.Object.OnAction = "ResetForm"
+
+    ' View Payslip button
+    Set btn = ws.OLEObjects.Add(ClassType:="Forms.CommandButton.1", _
+                                Left:=400, Top:=200, Width:=100, Height:=30)
+    btn.Object.Caption = "View Payslip"
+    btn.Name = "VP"
+    btn.Object.OnAction = "ViewPayslip"
+
+    ' Exit System button
+    Set btn = ws.OLEObjects.Add(ClassType:="Forms.CommandButton.1", _
+                                Left:=400, Top:=240, Width:=100, Height:=30)
+    btn.Object.Caption = "Exit System"
+    btn.Name = "ES"
+    btn.Object.OnAction = "ExitSystem"
+
+    ' Add ListBox
+    Dim lb As Object
+    Set lb = ws.OLEObjects.Add(ClassType:="Forms.ListBox.1", _
+                               Left:=600, Top:=120, Width:=200, Height:=150)
+    lb.Name = "L1"
+
+    ' Formatting
+    ws.Columns("A:D").AutoFit
+End Sub
+
+Sub CalculateWeeklySalary()
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Employee Payment System")
+    
+    Dim hoursWorked As Double, hourlyRate As Double, overtime As Double
+    Dim grossPay As Double, tax As Double, netPay As Double
+    Dim lb As Object
+
+    ' Get values from text boxes
+    hoursWorked = ws.OLEObjects("t3").Object.Value
+    hourlyRate = ws.OLEObjects("t8").Object.Value
+    overtime = ws.OLEObjects("t9").Object.Value
+
+    ' Calculate
+    grossPay = (hoursWorked * hourlyRate) + overtime
+    tax = grossPay * 0.1 ' 10% tax
+    netPay = grossPay - tax
+
+    ' Set values in text boxes
+    ws.OLEObjects("t5").Object.Value = grossPay
+    ws.OLEObjects("t4").Object.Value = tax
+    ws.OLEObjects("t10").Object.Value = netPay
+
+    ' Add output to ListBox
+    Set lb = ws.OLEObjects("L1").Object
+    lb.Clear
+    lb.AddItem "Gross Pay: " & grossPay
+    lb.AddItem "Tax: " & tax
+    lb.AddItem "Net Pay: " & netPay
+End Sub
+
+Sub ResetForm()
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Employee Payment System")
+    Dim i As Integer
+
+    ' Clear text boxes
+    For i = 1 To 10
+        ws.OLEObjects("t" & i).Object.Value = ""
+    Next i
+
+    ' Clear ListBox
+    ws.OLEObjects("L1").Object.Clear
+End Sub
+
+Sub ViewPayslip()
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Employee Payment System")
+    Dim lb As Object, payslip As String
+
+    ' Generate payslip from ListBox
+    Set lb = ws.OLEObjects("L1").Object
+    payslip = "Payslip Details:" & vbNewLine
+    Dim i As Integer
+    For i = 0 To lb.ListCount - 1
+        payslip = payslip & lb.List(i) & vbNewLine
+    Next i
+
+    ' Show payslip in a message box
+    MsgBox payslip, vbInformation, "Payslip"
+End Sub
+
+Sub ExitSystem()
+    Application.Quit
+End Sub

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purushothaman V - Data Scientist Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, rgb(255, 0, 0), rgb(0, 0, 255));
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Container */
+        .portfolio-container {
+            display: flex;
+            flex-direction: row;
+            max-width: 90%; /* Increase container size */
+            width: 100%;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: scale(0);
+            animation: slideIn 1s forwards;
+            min-height: 90vh; /* Increase container height */
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Left section: profile picture & about */
+        .left-section {
+            width: 40%; /* Make left section wider */
+            background: rgba(255, 255, 255, 0.8);
+            padding: 60px; /* Increase padding for more space */
+            border-radius: 10px 0 0 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .left-section img {
+            border-radius: 50%;
+            width: 250px; /* Increase image size */
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 30px;
+            border: 5px solid #4A90E2;
+        }
+
+        .left-section h1 {
+            font-size: 36px; /* Keep font size normal */
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .left-section p {
+            font-size: 22px; /* Keep font size normal */
+            color: #666;
+            text-align: center;
+        }
+
+        /* Right section: content */
+        .right-section {
+            width: 60%; /* Make right section wider */
+            padding: 60px; /* Increase padding */
+            background: white;
+            border-radius: 0 10px 10px 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .section-title {
+            font-size: 28px; /* Title font size stays same */
+            color: #4A90E2;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4A90E2;
+            padding-bottom: 8px;
+        }
+
+        .section-content {
+            font-size: 20px; /* Keep font size same */
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-content li {
+            margin-bottom: 15px;
+        }
+
+        .project-links a {
+            color: #4A90E2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 20px; /* Keep font size same for links */
+        }
+
+        .project-links a:hover {
+            color: #1c70b3;
+        }
+
+        footer {
+            background-color: #4A90E2;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        button {
+            background: #4A90E2;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin-top: 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        button:hover {
+            background: #357ABD;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        <!-- Left Section: Profile -->
+        <div class="left-section">
+            <img src="https://via.placeholder.com/250" alt="Purushothaman V">
+            <h1>Purushothaman V</h1>
+            <p>Data Scientist Enthusiast | Python, SQL, Power BI</p>
+            <p>Passionate about analytics and solving complex problems through data.</p>
+        </div>
+
+        <!-- Right Section: Content -->
+        <div class="right-section">
+            <!-- About Me -->
+            <div class="section">
+                <div class="section-title">About Me</div>
+                <div class="section-content">
+                    <p>Enthusiastic Data Scientist with expertise in Python, SQL, and Power BI. Passionate about leveraging data analysis to make impactful decisions. Currently exploring AI and machine learning techniques to advance my skills in the field.</p>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="section">
+                <div class="section-title">Skills</div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Python</strong> (Numpy, Pandas, Matplotlib)</li>
+                        <li><strong>R Language</strong></li>
+                        <li><strong>Power BI</strong></li>
+                        <li><strong>SQL</strong> (MS SQL Server)</li>
+                        <li><strong>AI/ML</strong> Basics of AI, Deep Learning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="section">
+                <div class="section-title">Soft Skills</div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Leadership</strong></li>
+                        <li><strong>Teamwork</strong></li>
+                        <li><strong>Critical Thinking</strong></li>
+                        <li><strong>Time Management</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="section">
+                <div class="section-title">Projects</div>
+                <div class="section-content project-links">
+                    <ul>
+                        <li><a href="https://github.com/Purushothaman7421/Customer-Shopping-Data-Project" target="_blank">Customer Shopping Data Project</a></li>
+                        <li><a href="https://github.com/Purushothaman7421/Diwali-Analysis-Project" target="_blank">Diwali Analysis Project</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="section">
+                <div class="section-title">Contact</div>
+                <div class="section-content">
+                    <p><strong>Email:</strong> vasupurushothaman777@gmail.com</p>
+                    <p><strong>Phone:</strong> 7401763740</p>
+                    <p><strong>Location:</strong> Chennai, Tamil Nadu, India</p>
+                    <button onclick="displayAlert()">Get in Touch</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Purushothaman V. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function displayAlert() {
+            alert("Thank you for showing interest! I'll get back to you soon.");
+        }
+    </script>
+
+</body>
+</html>
